@@ -1,0 +1,16 @@
+.registerPage {
+    display: flex;
+    margin: 300px auto;
+    border: solid blue 4px;
+    width: 500px;
+    padding: 20px;
+}
+
+.registerForm {
+    display: flex;
+    flex-direction: column;
+}
+
+.firstLast {
+    display: flex;
+}
