@@ -6,6 +6,10 @@ import Error from '../helpers/Error';
 
 export default function Register() {
 
+//  This validation schema comes from the Yup library, it checks
+//  the Formik values to make sure everything entered suits the database
+//  and that the passwords match
+
 const validationSchema = Yup.object().shape({
   firstName: Yup.string()
     .min(1, "Must have a character")
@@ -18,12 +22,24 @@ const validationSchema = Yup.object().shape({
   email: Yup.string()
     .email("Must be a valid email address")
     .required("Must enter an email"),
+  password: Yup.string()
+    .min(8, "Password must be 8 characters or longer")
+    .required("Password is required"),
+  confirmPassword: Yup.string().oneOf(
+    [Yup.ref('password'), null],
+    'Passwords must match'
+  )
 })
 
+// This is the Sign Up form, using Formik
 
   return (
     <div className="register">
       <h1>SIGN UP</h1>
+
+      {/* These initial values make up the values necessary to complete the form,
+      we update these values using Formik properties. */}
+
       <Formik 
         initialValues={{ 
           firstName: '', 
@@ -37,28 +53,32 @@ const validationSchema = Yup.object().shape({
         {({ values, errors, touched, handleChange, handleBlur }) => (
           <form className="registerForm">
             <div className="firstLast">
-              <input 
-                type="text" 
-                id="firstName" 
-                placeholder="FIRST NAME *" 
-                name="firstName"
-                onChange={handleChange}
-                value={values.firstName}
-                onBlur={handleBlur} 
-                className={(touched.firstName && errors.firstName) ? "hasError" : "validInput"}
-              />
-              <Error touched={touched.firstName} message={errors.firstName} />
-              <input 
-                type="text" 
-                id="lastName" 
-                placeholder="LAST NAME *" 
-                name="lastName"
-                onChange={handleChange}
-                value={values.lastName}
-                onBlur={handleBlur} 
-                className={touched.lastName && errors.lastName ? "hasError" : "validInput"}
-              />
-              <Error touched={touched.lastName} message={errors.lastName} />
+              <div className="oneInput">
+                <input 
+                  type="text" 
+                  id="firstName" 
+                  placeholder="FIRST NAME *" 
+                  name="firstName"
+                  onChange={handleChange}
+                  value={values.firstName}
+                  onBlur={handleBlur} 
+                  className={(touched.firstName && errors.firstName) ? "hasError" : "validInput"}
+                />
+                <Error touched={touched.firstName} message={errors.firstName} />
+              </div>
+              <div className="oneInput">
+                <input 
+                  type="text" 
+                  id="lastName" 
+                  placeholder="LAST NAME *" 
+                  name="lastName"
+                  onChange={handleChange}
+                  value={values.lastName}
+                  onBlur={handleBlur} 
+                  className={touched.lastName && errors.lastName ? "hasError" : "validInput"}
+                />
+                <Error touched={touched.lastName} message={errors.lastName} />
+              </div>
             </div>
               <input 
                 type="email" 

@@ -1,13 +1,13 @@
 import React from 'react';
 
 const Error = ({ touched, message }) => {
-    if (touched === false) {
-        return <div className="form-message invalid">&nbsp;</div>;
+    if (!touched) {
+        return <div className="invalid">&nbsp;</div>;
     }
     if (message) {
-        return <div className="form-message invalid">{message}</div>
+        return <div className="invalid">{message}</div>
     }
-    return <div className="form-message valid">All Good</div>;
+    return <div className="valid">Looks good!</div>;
 };
 
 export default Error;
