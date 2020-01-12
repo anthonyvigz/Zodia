@@ -1,16 +1,61 @@
-.registerPage {
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:700&display=swap');
+
+.register {
     display: flex;
+    flex-direction: column;
+    align-items: center;
     margin: 300px auto;
-    border: solid blue 4px;
     width: 500px;
     padding: 20px;
+    color: white;
+    background: rgba(0, 89, 255, 0.733);
+    border-radius: 5px;
+
+    h1 {
+        font-family: 'Roboto Condensed', sans-serif;
+        letter-spacing: 0px;
+    }
 }
 
 .registerForm {
     display: flex;
     flex-direction: column;
+    font-family: 'Roboto Condensed', sans-serif;
+    width: 425px;
+
+    input {
+        color: white;
+        background: none;
+        padding: 15px 20px;
+        font-family: 'Roboto Condensed', sans-serif;
+        letter-spacing: 1px;
+        font-size: 1em;
+        margin-bottom: 20px;
+        border: solid white 2px;
+        border-radius: 5px;
+    }
+
+    input::placeholder {
+        font-family: 'Roboto Condensed', sans-serif;
+        transition: 0.8s;
+        letter-spacing: 1px;
+        color: rgba(255, 255, 255, 0.575);
+    }
+
+    input:hover::-webkit-input-placeholder {
+        font-family: 'Roboto Condensed', sans-serif;
+        font-size: 0.5em;
+        transition: 0.8s;
+        letter-spacing: 1px;
+    }
 }
 
 .firstLast {
     display: flex;
+    justify-content: space-between;
+
+    input {
+        width: 150px;
+    }
+
 }
