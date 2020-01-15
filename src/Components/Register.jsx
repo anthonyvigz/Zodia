@@ -1,16 +1,22 @@
-import React from 'react';
+import React, { Component } from 'react';
 import '../scss/register.scss';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import Error from '../helpers/Error';
+import { registerUser } from '../actions/index';
+import { connect } from 'react-redux';
 
-export default function Register() {
+class Register extends Component {
+  constructor(props) {
+    super();
+    this.state = {}
+    }
 
 //  This validation schema comes from the Yup library, it checks
 //  the Formik values to make sure everything entered suits the database
 //  and that the passwords match
 
-const validationSchema = Yup.object().shape({
+validationSchema = Yup.object().shape({
   firstName: Yup.string()
     .min(1, "Must have a character")
     .max(20, "Must be shorter than 20")
@@ -32,7 +38,7 @@ const validationSchema = Yup.object().shape({
 })
 
 // This is the Sign Up form, using Formik
-
+render() {
   return (
     <div className="register">
       <h1>SIGN UP</h1>
@@ -48,10 +54,39 @@ const validationSchema = Yup.object().shape({
           password: '', 
           confirmPassword: '' 
         }} 
-        validationSchema={validationSchema}
+        validationSchema={this.validationSchema}
+        onSubmit={(values, {setSubmitting, resetForm}) => {
+          setSubmitting(true);
+
+          const { firstName, lastName, email, password } = values;
+
+          this.props.registerUser({
+            "firstname": firstName,
+            "lastname": lastName,
+            "email": email,
+            "password": password
+        })
+        // successful register prompts to main page 
+
+        .then(() => {
+            console.log("it worked")
+              
+        })
+        .catch((err) => {
+            console.error(err)
+        })
+        }}
       >
-        {({ values, errors, touched, handleChange, handleBlur }) => (
-          <form className="registerForm">
+        {({ 
+          values, 
+          errors, 
+          touched, 
+          handleChange, 
+          handleBlur, 
+          handleSubmit, 
+          isSubmitting 
+        }) => (
+          <form onSubmit={handleSubmit} className="registerForm">
             <div className="firstLast">
               <div className="oneInput">
                 <input 
@@ -113,10 +148,22 @@ const validationSchema = Yup.object().shape({
                 className={touched.confirmPassword && errors.confirmPassword ? "hasError" : "validInput"}
                 />
                 <Error touched={touched.confirmPassword} message={errors.confirmPassword} />
-            <button type="submit">REGISTER</button>
+            <button type="submit" disabled={isSubmitting}>REGISTER</button>
           </form>
         )}
       </Formik>
     </div>
   );
+  }
 }
+
+const mapDispatchToProps = {
+  registerUser: registerUser
+}
+
+export default(
+  connect(
+      null,
+      mapDispatchToProps
+  )(Register)
+);

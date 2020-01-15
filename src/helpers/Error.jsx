@@ -7,7 +7,7 @@ const Error = ({ touched, message }) => {
     if (message) {
         return <div className="invalid">{message}</div>
     }
-    return <div className="valid">Looks good!</div>;
+    return <div className="valid">&nbsp;</div>;
 };
 
 export default Error;
