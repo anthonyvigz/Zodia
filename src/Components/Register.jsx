@@ -44,7 +44,7 @@ render() {
     <AbsoluteWrapper>
       <div className="register">
         <h1>SIGN UP</h1>
-        <a href="/login">Already have an account?</a>
+        <a className="loginLink" href="/login">Already have an account?</a>
         {/* These initial values make up the values necessary to complete the form,
         we update these values using Formik properties. */}
 

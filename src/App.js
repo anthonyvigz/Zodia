@@ -6,6 +6,7 @@ import Home from './Components/Home';
 import Register from './Components/Register';
 import Login from './Components/Login';
 import AbsoluteWrapper from './Components/AbsoluteWrapper';
+import ProtectedRoutes from './components/Auth/Routes/ProtectedRoutes';
 
 
 function App() {
@@ -25,12 +26,13 @@ function App() {
     enter: { opacity: 1, transform: 'translate3d(0%,0,0)' },
     leave: { opacity: 0, transform: 'translate3d(-50%,0,0)' },
   })
-  
+
   return (
     <AbsoluteWrapper>
       <div className="App">
         <div>
           <Route exact path="/" component={Home} />
+          <ProtectedRoutes path="dashboard/*" />
           {transitions.map(({ item: location, props, key }) => (
           <animated.div key={key} style={props}>
             <Switch location={location}>
