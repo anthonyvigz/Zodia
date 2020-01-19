@@ -1,6 +1,7 @@
 import React from 'react';
-import { Router, Redirect } from '@reach/router';
+import { Redirect } from '@reach/router';
 import Dashboard from '../Dashboard/Dashboard';
+import Overview from '../Dashboard/Overview';
 
 function ProtectedRoutes() {
     // eslint-disable-next-line consistent-return
@@ -17,15 +18,13 @@ function ProtectedRoutes() {
     const token = getToken();
   
     if (!token) {
+      console.log("no token")
       return <Redirect to="/" noThrow />;
-    }
-    return (
-      <Router>
-        <Dashboard path="/">
-
-        </Dashboard>
-      </Router>
-    );
+    } else {
+      return (
+          <Dashboard path="/" />    
+      );
+      }
   }
   
   export default ProtectedRoutes;

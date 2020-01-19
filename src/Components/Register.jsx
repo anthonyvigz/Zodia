@@ -71,7 +71,7 @@ render() {
           // successful register prompts to main page 
 
           .then(() => {
-              console.log("it worked")
+              this.props.history.push('/dashboard/');
                 
           })
           .catch((err) => {
