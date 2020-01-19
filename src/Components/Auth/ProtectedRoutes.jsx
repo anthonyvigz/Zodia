@@ -1,6 +1,6 @@
 import React from 'react';
 import { Router, Redirect } from '@reach/router';
-import Dashboard from '../../../views/dashboard/Dashboard';
+import Dashboard from '../Dashboard/Dashboard';
 
 function ProtectedRoutes() {
     // eslint-disable-next-line consistent-return

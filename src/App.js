@@ -6,7 +6,7 @@ import Home from './Components/Home';
 import Register from './Components/Register';
 import Login from './Components/Login';
 import AbsoluteWrapper from './Components/AbsoluteWrapper';
-import ProtectedRoutes from './components/Auth/Routes/ProtectedRoutes';
+import ProtectedRoutes from './Components/Auth/ProtectedRoutes';
 
 
 function App() {
