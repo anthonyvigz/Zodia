@@ -1,5 +1,5 @@
 import React from 'react';
-import { Redirect } from '@reach/router';
+import { Router, Redirect } from '@reach/router';
 import Dashboard from '../Dashboard/Dashboard';
 import Overview from '../Dashboard/Overview';
 
@@ -22,7 +22,11 @@ function ProtectedRoutes() {
       return <Redirect to="/" noThrow />;
     } else {
       return (
-          <Dashboard path="/" />    
+        <Router>
+          <Dashboard path="/">
+            <Overview path="/" />
+          </Dashboard>
+        </Router>
       );
       }
   }

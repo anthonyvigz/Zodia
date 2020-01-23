@@ -5,6 +5,7 @@ import * as Yup from 'yup';
 import Error from '../helpers/Error';
 import { registerUser } from '../actions/index';
 import { connect } from 'react-redux';
+import { navigate } from '@reach/router';
 import AbsoluteWrapper from '../Components/AbsoluteWrapper';
 
 class Register extends Component {
@@ -71,7 +72,7 @@ render() {
           // successful register prompts to main page 
 
           .then(() => {
-              this.props.history.push('/dashboard/');
+              navigate('/dashboard/');
                 
           })
           .catch((err) => {
