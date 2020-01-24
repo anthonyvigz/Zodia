@@ -90,7 +90,7 @@ class Login extends Component {
                                 placeholder="PASSWORD *" 
                                 name="password"
                                 onChange={handleChange}
-                                value={values.email}
+                                value={values.password}
                                 onBlur={handleBlur} 
                                 className={touched.password && errors.password ? "hasError" : "validInput"}
                                 />
