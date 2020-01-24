@@ -2,9 +2,16 @@ import axios from 'axios';
 
 // export action types
 
+// REGISTERING A USER
 export const REGISTERING_USER = 'REGISTERING_USER';
 export const REGISTERED_USER = 'REGISTERED_USER';
 export const FAILED_REGISTER = 'FAILED_REGISTER';
+
+// LOGGING IN A USER
+export const LOGGING_IN = 'LOGGING_IN';
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+export const FAILED_LOGIN = 'FAILED_LOGIN';
+
 // export const ADD_LOCATION = 'ADD_LOCATION';
 // export const ADD_HOLES = 'ADD_HOLES';
 // export const ADD_PLAYERS = 'ADD_PLAYERS';
