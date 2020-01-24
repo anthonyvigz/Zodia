@@ -55,6 +55,7 @@ export function loginUser(payload) {
 
       return axios.post(`https://steveo-server.herokuapp.com/api/users/login/`, payload)
         .then((response) => {
+          console.log(response.data)
           dispatch({ type: LOGIN_SUCCESS, payload: response.data });
 
           localStorage.setItem('token', response.data.token);
