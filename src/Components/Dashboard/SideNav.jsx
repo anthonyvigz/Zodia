@@ -169,18 +169,18 @@ function SideNav() {
             <ListItemText primary="Profile" />
           </ListItem>
 
-          <ListItem button onClick={() => navigate('/dashboard/properties')}>
+          <ListItem button onClick={() => navigate('/dashboard/courses')}>
             <ListItemIcon>
               <HomeWorkIcon />
             </ListItemIcon>
-            <ListItemText primary="Properties" />
+            <ListItemText primary="Courses" />
           </ListItem>
 
-          <ListItem button onClick={() => navigate('/dashboard/tenants')}>
+          <ListItem button onClick={() => navigate('/dashboard/friends')}>
             <ListItemIcon>
               <PeopleIcon />
             </ListItemIcon>
-            <ListItemText primary="Tenants" />
+            <ListItemText primary="Friends" />
           </ListItem>
 
           <div>
