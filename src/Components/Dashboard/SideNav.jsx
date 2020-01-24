@@ -1,16 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import SideNav from './SideNav';
+import '../../scss/dashboard/sidenav.scss';
 
-function Dashboard(props) {
+function SideNav(props) {
 
-    console.log(props)
     return(
-        <div>
-            <h1>hey! {props.firstname}</h1>
-            <SideNav />
-            {/* explicitly declaring child routes for dashboard */}
-            {props.children}
+        <div className="sideNav">
+            <h3>navbar for {props.firstname}</h3>
         </div>
         )
     }
@@ -27,5 +23,5 @@ const mapStateToProps = (state) => {
     connect(
         mapStateToProps,
         null
-    )(Dashboard)
+    )(SideNav)
   );
