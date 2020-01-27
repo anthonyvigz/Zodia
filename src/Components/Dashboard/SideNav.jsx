@@ -126,7 +126,7 @@ function SideNav() {
           >
             <MenuIcon />
           </IconButton>
-          <h4>Dashboard</h4>
+          <h4>CHAINS</h4>
         </Toolbar>
       </AppBar>
       <Drawer

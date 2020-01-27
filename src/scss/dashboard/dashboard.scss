@@ -3,6 +3,11 @@
     flex-flow: row nowrap;
     height: 100vh;
     margin-top: 50px;
+    background: linear-gradient(0deg,rgba(5, 96, 214, 0.801),rgba(0, 0, 0, 0.87)), url('../../assets//targets-header.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
     &-content {
         padding-top: 2rem;
         padding-bottom: 2rem;
