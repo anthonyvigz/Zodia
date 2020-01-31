@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
-
+import { navigate } from '@reach/router';
 
 export default function Home(props) {
 
@@ -8,7 +8,9 @@ export default function Home(props) {
   const toRegister = (event) => {
     event.preventDefault();
 
-    props.history.push('/register')
+    console.log(props);
+
+    navigate('/register');
   }
 
   return (
